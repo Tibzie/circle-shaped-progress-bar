@@ -55,9 +55,12 @@ body {
         stroke-dasharray: 433;
         width: 150px;
         height: 150px;
-        transform: rotate(-90deg);
+        transform: rotate(-90deg); // needs to be rotated to start clockwise
     }
     &__value {
         font-size: 26px;
+    }
+    &__percentage {
+        font-size: 16px;
     }
 }

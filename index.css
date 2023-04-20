@@ -54,4 +54,7 @@ body {
 }
 .progress-bar__value {
   font-size: 26px;
+}
+.progress-bar__percentage {
+  font-size: 16px;
 }/*# sourceMappingURL=index.css.map */

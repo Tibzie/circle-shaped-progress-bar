@@ -11,7 +11,8 @@
     <div class="progress-bar">
         <div class="progress-bar__exterior">
             <div class="progress-bar__interior">
-                <span class="progress-bar__value">70</span><span>%</span>
+                <span class="progress-bar__value"></span>
+                <span class="progress-bar__percentage">%</span>
             </div>
         </div>
         <svg class="progress-bar__svg">
@@ -20,18 +21,27 @@
     </div>
 
     <script>
+        let counter = 0;
+
         let progressBarSVG = document.querySelector('.progress-bar__svg');
-        let progressBarValue = document.querySelector('.progress-bar__value').textContent;
+        let progressBarValue = document.querySelector('.progress-bar__value');
         let totalLengthProgressBar =  (2 * 70 * Math.PI).toFixed(2); // 2 * radius * PI
 
-        let result = totalLengthProgressBar - ( totalLengthProgressBar * (progressBarValue / 100));
+        
+        setInterval(() => {
+            if(counter == 75) {
+                clearInterval();
+            } else {
+                counter += 1;
+                progressBarValue.innerHTML = counter;
+                let result = totalLengthProgressBar - ( totalLengthProgressBar * (progressBarValue.innerHTML / 100));
+                progressBarSVG.style.strokeDashoffset = result;
+                console.log(counter + "%");
+            }
+           
+        }, 40);
 
         
-        progressBarSVG.style.strokeDashoffset = result;
-        
-        console.log(progressBarValue);
-        console.log("Total length is: " + totalLengthProgressBar);
-        console.log("Result is: " + result);
     </script>
 </body>
 </html>
