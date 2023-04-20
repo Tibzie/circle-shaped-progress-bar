@@ -21,27 +21,29 @@
     </div>
 
     <script>
+            
+        const progressBarSVG = document.querySelector('.progress-bar__svg');
+        const progressBarValue = document.querySelector('.progress-bar__value');
+        const totalLengthProgressBar =  (2 * 70 * Math.PI).toFixed(2); // 2 * radius * PI
+
         let counter = 0;
+        let progressBarValueNumber = 75;
 
-        let progressBarSVG = document.querySelector('.progress-bar__svg');
-        let progressBarValue = document.querySelector('.progress-bar__value');
-        let totalLengthProgressBar =  (2 * 70 * Math.PI).toFixed(2); // 2 * radius * PI
-
-        
         setInterval(() => {
-            if(counter == 75) {
+            // if counter reaches the desired number then stop it
+            if(counter == progressBarValueNumber) {
                 clearInterval();
             } else {
+                // otherwise increment it by one
                 counter += 1;
+                // dom element value same as counter
                 progressBarValue.innerHTML = counter;
-                let result = totalLengthProgressBar - ( totalLengthProgressBar * (progressBarValue.innerHTML / 100));
-                progressBarSVG.style.strokeDashoffset = result;
-                console.log(counter + "%");
+                let calcStrokeDashOffset = totalLengthProgressBar - ( totalLengthProgressBar * (progressBarValue.innerHTML / 100));
+                progressBarSVG.style.strokeDashoffset = calcStrokeDashOffset;
             }
            
         }, 40);
 
-        
     </script>
 </body>
 </html>

@@ -1,9 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,700&display=swap');
 
+// Mixin
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 // Colours
 $body-bg: #D2C2AC;
 $body-text: #321411;
-$some-green-shit: #5C6D5F;
+$progress-bar: #5C6D5F;
+$box-shadow: #5c5c5c;
 
 * {
     padding: 0;
@@ -28,31 +36,32 @@ body {
     background-color: transparent;
     position: relative;
     &__exterior {
+        @include flex-center;
         width: 150px;
         height: 150px;
-        border: 3px solid $body-text;
+        // border: 3px solid $body-text;
+        border: 2px solid $body-text;
         border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        box-shadow: 2px 2px 5px $box-shadow;
     }
     &__interior {
+        @include flex-center;
         width: 130px;
         height: 130px;
-        border: 3px solid $body-text;
+        // border: 3px solid $body-text;
+        border: 2px solid $body-text;
         border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
     }
     &__svg {
         position: absolute;
         top: 0;
         left: 0;
         fill: none;
-        stroke: $some-green-shit;
-        stroke-width: 8px;
+        stroke: $progress-bar;
+        // stroke-width: 8px;
+        stroke-width: 4px;
         stroke-dasharray: 433;
+        stroke-linecap: round;
         width: 150px;
         height: 150px;
         transform: rotate(-90deg); // needs to be rotated to start clockwise
