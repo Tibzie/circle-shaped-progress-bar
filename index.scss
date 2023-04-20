@@ -1,6 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,700&display=swap');
+
+// Colours
+$body-bg: #D2C2AC;
+$body-text: #321411;
+$some-green-shit: #5C6D5F;
 
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
+
+body {
+    background-color: $body-bg;
+    color: $body-text;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.progress-bar {
+    width: 200px;
+    height: 200px;
+    background-color: transparent;
+    position: relative;
+    &__exterior {
+        width: 150px;
+        height: 150px;
+        border: 3px solid $body-text;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__interior {
+        width: 130px;
+        height: 130px;
+        border: 3px solid $body-text;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        fill: none;
+        stroke: $some-green-shit;
+        stroke-width: 8px;
+        stroke-dasharray: 433;
+        width: 150px;
+        height: 150px;
+        transform: rotate(-90deg);
+    }
+    &__value {
+        font-size: 26px;
+    }
 }

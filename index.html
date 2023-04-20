@@ -8,8 +8,30 @@
     <title>Circle shaped progress bar</title>
 </head>
 <body>
-    <div class="some-random-stuff">
-        <p>Hello world!</p>
+    <div class="progress-bar">
+        <div class="progress-bar__exterior">
+            <div class="progress-bar__interior">
+                <span class="progress-bar__value">70</span><span>%</span>
+            </div>
+        </div>
+        <svg class="progress-bar__svg">
+            <circle cx="75" cy="75" r="69" />
+        </svg>
     </div>
+
+    <script>
+        let progressBarSVG = document.querySelector('.progress-bar__svg');
+        let progressBarValue = document.querySelector('.progress-bar__value').textContent;
+        let totalLengthProgressBar =  (2 * 70 * Math.PI).toFixed(2); // 2 * radius * PI
+
+        let result = totalLengthProgressBar - ( totalLengthProgressBar * (progressBarValue / 100));
+
+        
+        progressBarSVG.style.strokeDashoffset = result;
+        
+        console.log(progressBarValue);
+        console.log("Total length is: " + totalLengthProgressBar);
+        console.log("Result is: " + result);
+    </script>
 </body>
 </html>
